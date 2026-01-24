@@ -1,0 +1,1 @@
+A second courser, who has finished BS in Maritime Transportation. Currently studying Computer Science in University of Bohol. Introverted, despite the way he looks. Can play a bit of guitar, still learning the piano and has a bit of an experience with editing videos. Hobbies are gaming and probably crochet.
