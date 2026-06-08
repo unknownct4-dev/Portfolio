@@ -1,0 +1,16 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    
+    background-color: whitesmoke;
+    background-image: url("");
+}
+
+
+.end {
+    text-align: center;
+}
