@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>quotations.html</title>
+    <style>
+        * {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background-image: url("assets/freepik_br_9f407ad2-b7f9-44ac-9c03-0caf084ba814.png"), url("assets/10348939.png"), url("assets/sunrise-mountains.jpg");
+            background-position: right bottom, center top, left top;
+            background-repeat: no-repeat;
+            background-size: 450px auto, 400px auto, cover;
+            background-attachment: fixed;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        a {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-decoration: none;
+            font-style: italic;
+            color: dimgrey;
+        }
+
+        span {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+        }
+
+        .quote::first-letter{
+            font-size:xx-large;
+            color: red;
+        }
+
+
+        /*eggsperiment*/
+
+        /* Container for flexboxes */
+        .main {
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        /* Create three unequal columns that sits next to each other */
+        .column {
+            padding: 10px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Left and right column */
+        .column.left {
+            -webkit-flex: 1;
+            -ms-flex: 1px;
+            flex: 0 0 50;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            background-color: rgba(255, 249, 201, 0.60);
+            text-align: center;
+        }
+
+
+        /* Middle column */
+        .column.quotes {
+            -webkit-flex: 2;
+            -ms-flex: 2;
+            flex: 2;
+            width: 90%;
+        }
+
+        /*containers ipang flexbox*/
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /*every quote div*/
+        .quote {
+            position: relative;
+            padding: 25px 10px;
+            background-color: rgba(255, 249, 201, 0.60);
+            color: #000080;
+            gap: 10px;
+            width: 250px;
+            height: 160px;
+            margin: 15px;
+            border-radius: 15px;
+        }
+
+        /*button*/
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            cursor: pointer;
+            color: #2c9caf;
+            transition: all 200ms;
+            position: relative;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: slategray;
+        }
+
+
+
+        .end {
+            text-align: center;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="column left">
+            <h1><big><em>Points to Ponder</em></big></h1>
+        </div>
+
+
+
+        <div class="column quotes">
+            <div>
+                <h2>Quotes about Change</h2>
+            </div>
+            <hr width="500px" align="left">
+
+            <div class="container">
+
+
+                <div class="quote">
+                    "<span class=""></span>Change brings opportunity." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Nido
+                            Qubein</a></span>
+                </div>
+
+                <div class="quote">
+                    "Sometimes good things fall apart so better things could fall together." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Marilyn
+                            Monroe</a></span>
+                </div>
+
+                <div class="quote">
+                    "Incredible change happens in your life when you decide to take control of what you have power over
+                    instead
+                    of
+                    craving control over what you don't." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Steve
+                            Maraboli</a></span>
+                </div>
+
+                <div class="quote">
+                    "Recognizing that you are not where you want to be is a starting point to begin changing your life."
+                    <span><a href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">-Deborah
+                            Day</a></span>
+                </div>
+
+                <div class="quote">
+                    "People who are crazy enough to think they can change the world are the ones who do." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Rob
+                            Siltanen</a></span>
+                </div>
+
+            </div>
+
+
+            <div class="container">
+                <div class="quote">
+                    "I am no longer accepting the things I cannot change. I am changing the things I cannot accept."
+                    <span><a href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Angela
+                            Davis</a></span>
+                </div>
+
+                <div class="quote">
+                    "What you do makes a difference, and you have to decide what kind of difference you want to make."
+                    <span><a href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Jane
+                            Goodall</a></span>
+                </div>
+
+                <div class="quote">
+                    "Change is made of choices, and choices are made of character." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Amanda
+                            Gorman</a></span>
+                </div>
+
+                <div class="quote">
+                    "Tradition is nothing but ancestral peer pressure." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Indya
+                            Moore</a></span>
+                </div>
+
+                <div class="quote">
+                    "Change is the law of life and those who look only to the past or present are certain to miss the
+                    future."
+                    <span><a href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- John F.
+                            Kennedy</a></span>
+                </div>
+
+            </div>
+
+
+
+
+
+            <!--about growth-->
+
+            <br>
+            <div>
+                <h2>Quotes about Growth</h2>
+            </div>
+
+            <hr width="500px" align="left">
+
+            <div class="container">
+                <div class="quote">
+                    "Do the best you can until you know better. Then when you know better, do better." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Maya
+                            Angelou</a></span>
+                </div>
+
+                <div class="quote">
+                    "There is nothing noble in being superior to your fellow man; true nobility is being superior to
+                    your former
+                    self." <span><a href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">-
+                            Ernest
+                            Hemingway</a></span>
+                </div>
+
+                <div class="quote">
+                    Stay afraid, but do it anyway. What's important is the action. You don't have to wait to be
+                    confident. Just
+                    do
+                    it and eventually the confidence will follow. <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Carrie
+                            Fisher</a></span>
+                </div>
+
+                <div class="quote">
+                    "One can choose to go back toward safety or forward toward growth. Growth must be chosen again and
+                    again;
+                    fear must be overcome again and again." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Abraham
+                            Maslow</a></span>
+                </div>
+
+                <div class="quote">
+                    "We can't become what we need to be by remaining what we are." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Oprah
+                            Winfrey</a></span>
+                </div>
+
+            </div>
+
+
+            <div class="container">
+                <div class="quote">
+                    "When we're growing up, there are all sorts of people telling us what to do when really what we need
+                    is
+                    space to work out who to be." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Elliot
+                            Page</a></span>
+                </div>
+
+                <div class="quote">
+                    "If there is no struggle, there is no progress." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Frederick
+                            Douglass</a></span>
+                </div>
+
+                <div class="quote">
+                    "Permit yourself to change your mind when something is no longer working for you." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Nedra
+                            Glover
+                            Tawwab</a></span>
+                </div>
+
+                <div class="quote">
+                    "Be not afraid of growing slowly; be afraid only of standing still." <span><a
+                            href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">- Chinese Proverb</a></span>
+                </div>
+
+                <div class="quote">
+                    "Though no one can go back and make a brand new start, anyone can start from now and make a brand
+                    new
+                    ending." <span><a href="https://www.snhu.edu/about-us/newsroom/education/personal-growth-quotes">-
+                            Carl
+                            Bard</a></span>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+<footer>
+    <hr width="75%" align="center">
+    <div class="end">
+        CHRISTIAN JOSEPH P. TONGCO<br>
+        <i><small>-made by-</small></i>
+        <div class="column right">
+            <a href="home.html" target="_top">
+                <button>Home</button>
+            </a>
+        </div>
+
+    </div>
+
+</footer>
+
+
+</html>
