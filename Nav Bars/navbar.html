@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Horizontal Navigation Bar</title>
+    <style>
+        * {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 20px auto;
+            padding: 0;
+            background-color: #38444d;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+            width: 500px;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+        }
+
+        li:not(:last-child)::after {
+            content: "|";
+            color: rgba(255, 255, 255, 0.3);
+            margin: 0 5px;
+        }
+
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: rgba(211, 211, 211, 0.6);
+        }
+
+        li .dropbtn {
+            display: inline-block;
+
+        }
+
+        .options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            /* This moves it exactly below the parent 'li' */
+            left: 0;
+            /* Aligns it with the left edge of 'Projects' */
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Darker so you can see it better */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            /* Make sure it stays on top */
+            border-radius: 10px;
+
+        }
+
+        .options a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-radius: 8px;
+            margin: 2px;
+        }
+
+
+        .options a:hover {
+            background-color: #f1f1f1;
+            border-radius: 15px;
+            color: black;
+        }
+
+        .dropdown:hover .options {
+            display: block;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <audio id="hover-sound" src="assets/Lightsaber Swing - Sound Effects for editing.mp3" preload="auto"></audio>
+
+    <ul class="main">
+        <li><a href="#" class="link">Home</a></li>
+
+        <li class="dropdown">
+            <a href="#" href="javascript:void(0)" class="dropbtn" id="">Projects</a>
+            <div class="options">
+                <a href="#" class="link">Project 1</a>
+                <a href="#" class="link">Project 2</a>
+                <a href="#" class="link">Project 3</a>
+            </div>
+        </li>
+
+        <li><a href="#" class="link">Schedule</a></li>
+        <li><a href="#" class="link">Contact</a></li>
+    </ul>
+    
+    <script>
+        // 1. Get the audio element
+        const sound = document.getElementById("hover-sound");
+
+        // 2. Select all links with the class 'nav-link'
+        const links = document.querySelectorAll(".link");
+
+        // 3. Add the hover event to each link
+        links.forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                sound.currentTime = 0; // Reset sound to start (in case it's already playing)
+                sound.play();          // Play the sound
+            });
+        });
+    </script>
+
+
+</body>
+
+
+
+</html>
