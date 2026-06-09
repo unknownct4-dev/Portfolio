@@ -1,0 +1,72 @@
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    background-image: url("assets/top-view-breakfast-elements.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+    height: 100vh;
+    margin: 0;
+
+    /*align main to right*/
+    display: flex;
+    justify-content: end; /*align to right*/
+    align-items: center;
+}
+
+.main {
+    width: 30%;
+    margin-right: 5%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 25px;
+    border-radius: 15px;
+    overflow-y: auto;
+    max-height: 80vh;
+}  
+
+.links {
+    position:fixed;
+    /*x and y??*/
+    top: 65%;
+    left: 20%;
+
+
+    /*rotate to align with notebook*/
+    transform: rotate(-10deg);
+    font-weight: lighter;
+}
+
+
+hr{
+    width: 50%;
+    align-items: left;
+}
+
+h1, h3{
+    color: #333;
+    text-align: center;
+}
+p{
+    text-align: justify;
+    font-size: medium;
+}
+
+h3{
+    font-weight: normal;
+    font-style: italic;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+
+a:hover {
+    color: blueviolet;
+    font-weight: bolder;
+}
