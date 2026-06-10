@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Christian Tongco">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian Joseph P. Tongco | Online Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #22313f;
+      background: #f3f7f8;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #12343b;
+      box-shadow: 0 3px 14px rgba(18, 52, 59, 0.2);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      color: #ffffff;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a,
+    .button-link {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      background: #2b7a78;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .button-link:hover {
+      background: #1f5d5b;
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 34px 20px 56px;
+    }
+
+    .hero {
+      min-height: 390px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+      align-items: center;
+      gap: 32px;
+      padding: 48px 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1.05;
+      margin-bottom: 16px;
+      color: #12343b;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 19px;
+      color: #465a69;
+    }
+
+    .profile-photo {
+      width: min(100%, 260px);
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 7px solid #ffffff;
+      box-shadow: 0 14px 32px rgba(18, 52, 59, 0.22);
+      justify-self: center;
+    }
+
+    section {
+      padding: 50px 0;
+      border-top: 1px solid #d5e1e4;
+    }
+
+    h2 {
+      font-size: 31px;
+      color: #12343b;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      color: #12343b;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #3f5361;
+    }
+
+    .section-text {
+      max-width: 790px;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .info-grid,
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .card {
+      min-height: 160px;
+      padding: 22px;
+      background: #ffffff;
+      border: 1px solid #d5e1e4;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(18, 52, 59, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(18, 52, 59, 0.15);
+    }
+
+    .card ul {
+      padding-left: 20px;
+      color: #3f5361;
+    }
+
+    .card a {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      background: #2b7a78;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-weight: 700;
+      margin-top: 12px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .card a:hover {
+      background: #1f5d5b;
+      transform: translateY(-1px);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .email-link {
+      color: #1f5d5b;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      color: #52606d;
+      background: #e1ecef;
+    }
+
+    @media (max-width: 720px) {
+      nav,
+      .hero {
+        align-items: flex-start;
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 34px 0;
+      }
+
+      .profile-photo {
+        justify-self: start;
+        width: 210px;
+      }
+
+      section {
+        padding: 38px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="logo">Christian Tongco</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#works">My Works</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <h1>Christian Joseph P. Tongco</h1>
+        <p>
+          Computer Science student, second courser, gamer, and nocturnal learner who enjoys building projects,
+          helping classmates, and improving one skill at a time.
+        </p>
+      </div>
+      <img class="profile-photo" src="About%20Me/assets/Picture1.png" alt="Photo of Christian Joseph P. Tongco">
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="section-text">
+        Hello everyone, my name is Christian Joseph P. Tongco. I am a second courser student currently studying
+        Computer Science at the University of Bohol.
+      </p>
+      <p class="section-text">
+        My first course was Bachelor of Science in Maritime Transportation, and I officially finished the course
+        in late 2025. I chose to study again because Computer Science is the course I really wanted to pursue.
+      </p>
+      <p class="section-text">
+        I am a gamer and a nocturnal being who barely sleeps because of gaming, reading, studying, or making
+        school projects. I can play a bit of guitar, I am still studying how to play piano, and I crochet once in
+        a while, especially when I want to give something handmade to someone.
+      </p>
+      <p class="section-text">
+        In class, I try my best to help my classmates by giving guidance and encouraging good study habits.
+        I am the eldest in my class today, and I feel honored when classmates come to me for help while I continue
+        working to become a better version of myself.
+      </p>
+
+      <div class="info-grid">
+        <article class="card">
+          <h3>Favorite Games</h3>
+          <ul>
+            <li>God of War 2018</li>
+            <li>Star Wars: Fallen Order</li>
+            <li>Assassin's Creed, especially the Ezio storyline</li>
+            <li>Filament</li>
+            <li>Left 4 Dead 1 and 2</li>
+            <li>Little Nightmares 1 and 2</li>
+            <li>Tomb Raider</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Favorite Cafes</h3>
+          <ul>
+            <li>Tails Cafe</li>
+            <li>Yokoy's Cafe</li>
+            <li>Hamlet</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Web Systems Schedule</h3>
+          <p>Monday and Wednesday, 12:00-13:30 at Comp Lab B.</p>
+          <p>Monday and Wednesday, 16:30-17:30 at F-303.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="works">
+      <h2>My Works</h2>
+      <p class="section-text">
+        This page showcases the coding projects I've created while learning web development and programming.
+      </p>
+
+      <div class="works-grid">
+        <article class="card">
+          <h3>Web Systems</h3>
+          <p>
+            Projects from my Web Systems course, including various HTML, CSS, and web development assignments.
+          </p>
+          <a href="Web%20Systems/index.html">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Gallery</h3>
+          <p>
+            A photo gallery showcase featuring images and organized in an interactive layout.
+          </p>
+          <a href="gallery/index.html">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Map</h3>
+          <p>
+            An interactive map project demonstrating geographic visualization and navigation capabilities.
+          </p>
+          <a href="map/index.html">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Quote Project</h3>
+          <p>
+            A dynamic quote display project showcasing quotes with styling and interactivity.
+          </p>
+          <a href="quote/index.html">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Group Photo Mapping</h3>
+          <p>
+            A collaborative project mapping and organizing group photos with interactive features.
+          </p>
+          <a href="Group%20Photo%20mapping/index.html">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Navigation Bars</h3>
+          <p>
+            Various navigation bar designs and implementations demonstrating different UI/UX approaches.
+          </p>
+          <a href="Nav%20Bars/index.html">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Write-ups</h3>
+          <p>
+            Technical write-ups and documentation of various projects and learning experiences.
+          </p>
+          <a href="write%20ups/index.html">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Photos HTML</h3>
+          <p>
+            An HTML-based photo organization and display project with structured layouts.
+          </p>
+          <a href="photos%20html/index.html">View Project</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <h2>Contacts</h2>
+      <p class="section-text">
+        You can contact me through email:
+        <a class="email-link" href="mailto:cjptongco@universityofbohol.edu.ph">cjptongco@universityofbohol.edu.ph</a>
+      </p>
+      <p class="section-text">Dampas District, Tagbilaran City, Bohol 6300, Philippines</p>
+
+      <div class="contact-list" aria-label="Social links">
+        <a class="button-link" href="https://www.facebook.com/tiantian.tongco" target="_blank">Facebook</a>
+        <a class="button-link" href="https://www.instagram.com/dc_n_j.s/" target="_blank">Instagram</a>
+        <a class="button-link" href="https://www.youtube.com/@cjtongco7700" target="_blank">YouTube</a>
+        <a class="button-link" href="https://www.youtube.com/@moander18" target="_blank">Gaming YouTube</a>
+        <a class="button-link" href="https://www.tiktok.com/@_moander_" target="_blank">TikTok</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Christian Joseph P. Tongco. All rights reserved.</p>
+  </footer>
+</body>
+</html>
