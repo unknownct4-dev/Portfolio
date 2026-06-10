@@ -14,6 +14,8 @@
 
     html {
       scroll-behavior: smooth;
+      /* Stops anchor links from landing under the sticky header */
+      scroll-padding-top: 70px;
     }
 
     body {
@@ -23,18 +25,21 @@
       line-height: 1.6;
     }
 
+    /* ─────────────────────────────
+       HEADER & NAV
+    ───────────────────────────── */
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
       background: #12343b;
-      box-shadow: 0 3px 14px rgba(18, 52, 59, 0.2);
+      box-shadow: 0 3px 14px rgba(18, 52, 59, 0.3);
     }
 
     nav {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 16px 20px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -43,139 +48,225 @@
 
     .logo {
       color: #ffffff;
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 700;
     }
 
     .nav-links {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       list-style: none;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
-    .nav-links a,
-    .button-link {
+    .nav-links a {
       display: inline-block;
       color: #ffffff;
       text-decoration: none;
       background: #2b7a78;
-      padding: 10px 15px;
+      padding: 9px 16px;
       border-radius: 6px;
       font-weight: 700;
-      transition: background 0.2s ease, transform 0.2s ease;
+      font-size: 14px;
+      transition: background 0.2s, transform 0.2s;
     }
 
-    .nav-links a:hover,
-    .button-link:hover {
+    .nav-links a:hover {
       background: #1f5d5b;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
+    /* White highlight when that section is on screen */
+    .nav-links a.active {
+      background: #ffffff;
+      color: #12343b;
+    }
+
+    /* ─────────────────────────────
+       MAIN CONTENT WRAPPER
+    ───────────────────────────── */
     main {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 34px 20px 56px;
+      padding: 0 24px 60px;
     }
 
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
     .hero {
-      min-height: 390px;
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+      grid-template-columns: 1.4fr 0.6fr;
       align-items: center;
       gap: 32px;
-      padding: 48px 0;
+      padding: 52px 0 44px;
+    }
+
+    /* Small pill badge above the name */
+    .hero-badge {
+      display: inline-block;
+      background: #d6f0ef;
+      color: #12343b;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
     }
 
     .hero h1 {
-      font-size: clamp(34px, 6vw, 62px);
-      line-height: 1.05;
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1.08;
       margin-bottom: 16px;
       color: #12343b;
     }
 
-    .hero p {
-      max-width: 720px;
-      font-size: 19px;
+    .hero-desc {
+      font-size: 18px;
       color: #465a69;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    /* Skills tag strip under the description */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: #ffffff;
+      border: 1px solid #b6d4d3;
+      color: #12343b;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 6px;
     }
 
     .profile-photo {
-      width: min(100%, 260px);
+      width: min(100%, 240px);
       aspect-ratio: 1;
       object-fit: cover;
       border-radius: 50%;
-      border: 7px solid #ffffff;
-      box-shadow: 0 14px 32px rgba(18, 52, 59, 0.22);
+      border: 6px solid #ffffff;
+      box-shadow: 0 10px 30px rgba(18, 52, 59, 0.2);
       justify-self: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .profile-photo:hover {
+      transform: scale(1.04);
+      box-shadow: 0 16px 40px rgba(18, 52, 59, 0.28);
+    }
+
+    /* ─────────────────────────────
+       SECTION SHARED STYLES
+    ───────────────────────────── */
     section {
-      padding: 50px 0;
+      padding: 52px 0;
       border-top: 1px solid #d5e1e4;
     }
 
+    /* Colored left bar on every section heading */
     h2 {
-      font-size: 31px;
+      font-size: 28px;
       color: #12343b;
-      margin-bottom: 18px;
+      margin-bottom: 6px;
+      padding-left: 14px;
+      border-left: 4px solid #2b7a78;
+    }
+
+    /* Subtitle line under each heading */
+    .section-subtitle {
+      color: #7a9aaa;
+      font-size: 14px;
+      margin-bottom: 22px;
+      padding-left: 18px;
     }
 
     h3 {
       color: #12343b;
       margin-bottom: 10px;
+      font-size: 16px;
     }
 
-    p {
-      color: #3f5361;
-    }
+    p { color: #3f5361; }
 
     .section-text {
-      max-width: 790px;
-      font-size: 18px;
-      margin-bottom: 16px;
+      max-width: 780px;
+      font-size: 17px;
+      margin-bottom: 14px;
     }
 
+    /* ─────────────────────────────
+       CARDS (About + Works)
+    ───────────────────────────── */
     .info-grid,
     .works-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-      margin-top: 24px;
+      gap: 16px;
+      margin-top: 8px;
     }
 
     .card {
-      min-height: 160px;
       padding: 22px;
       background: #ffffff;
       border: 1px solid #d5e1e4;
-      border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(18, 52, 59, 0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(18, 52, 59, 0.07);
+      /* Start hidden; JS adds .visible to fade them in */
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(18, 52, 59, 0.15);
+      box-shadow: 0 10px 26px rgba(18, 52, 59, 0.13);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Teal top bar on every works card */
+    .works-grid .card {
+      border-top: 3px solid #2b7a78;
     }
 
     .card ul {
-      padding-left: 20px;
+      padding-left: 18px;
       color: #3f5361;
+      font-size: 15px;
     }
 
+    .card ul li { margin-bottom: 4px; }
+
+    .card p {
+      font-size: 15px;
+      color: #3f5361;
+      margin-bottom: 6px;
+    }
+
+    /* Buttons inside cards */
     .card a {
       display: inline-block;
       color: #ffffff;
       text-decoration: none;
       background: #2b7a78;
-      padding: 10px 15px;
+      padding: 8px 14px;
       border-radius: 6px;
       font-weight: 700;
-      margin-top: 12px;
-      transition: background 0.2s ease, transform 0.2s ease;
-      margin-right: 8px;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-right: 6px;
+      transition: background 0.2s, transform 0.2s;
     }
 
     .card a:hover {
@@ -183,11 +274,74 @@
       transform: translateY(-1px);
     }
 
-    .contact-list {
+    /* ─────────────────────────────
+       CURRENTLY LEARNING STRIP
+    ───────────────────────────── */
+    .learning-strip {
+      background: #ffffff;
+      border: 1px solid #d5e1e4;
+      border-left: 4px solid #2b7a78;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .learning-strip .label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #2b7a78;
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .learning-items {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 8px;
+    }
+
+    .learning-item {
+      background: #f3f7f8;
+      border: 1px solid #d5e1e4;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 14px;
+      color: #22313f;
+      font-weight: 600;
+    }
+
+    /* ─────────────────────────────
+       CONTACTS
+    ───────────────────────────── */
+    .contact-box {
+      background: #ffffff;
+      border: 1px solid #d5e1e4;
+      border-radius: 10px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 16px;
+      color: #3f5361;
+    }
+
+    .contact-row:last-child { margin-bottom: 0; }
+
+    .contact-icon {
+      font-size: 20px;
+      width: 32px;
+      text-align: center;
+      flex-shrink: 0;
     }
 
     .email-link {
@@ -196,26 +350,131 @@
       text-decoration: none;
     }
 
-    .email-link:hover {
-      text-decoration: underline;
+    .email-link:hover { text-decoration: underline; }
+
+    /* Social link buttons */
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
+    .button-link {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      background: #2b7a78;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .button-link:hover {
+      background: #1f5d5b;
+      transform: translateY(-2px);
+    }
+
+    /* ─────────────────────────────
+       FADE-IN FOR SECTIONS
+    ───────────────────────────── */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero is always fully visible */
+    .hero {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* ─────────────────────────────
+       BACK TO TOP BUTTON
+    ───────────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #2b7a78;
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(18, 52, 59, 0.25);
+      /* Hidden by default */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+    }
+
+    #back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #back-to-top:hover { transform: translateY(-3px); }
+
+    /* ─────────────────────────────
+       FOOTER
+    ───────────────────────────── */
     footer {
+      background: #12343b;
+      color: #a8c4c2;
       text-align: center;
-      padding: 24px 20px;
-      color: #52606d;
-      background: #e1ecef;
+      padding: 32px 24px;
+      font-size: 14px;
     }
 
-    @media (max-width: 720px) {
-      nav,
-      .hero {
-        align-items: flex-start;
-        grid-template-columns: 1fr;
-      }
+    footer p { color: #a8c4c2; }
 
+    footer .footer-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 14px 0;
+    }
+
+    footer .footer-links a {
+      color: #7ec8c5;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    footer .footer-links a:hover { color: #ffffff; }
+
+    footer .footer-copy {
+      font-size: 13px;
+      color: #6a8e8c;
+      margin-top: 10px;
+    }
+
+    /* ─────────────────────────────
+       MOBILE
+    ───────────────────────────── */
+    @media (max-width: 720px) {
       nav {
         flex-direction: column;
+        align-items: flex-start;
       }
 
       .nav-links {
@@ -224,47 +483,66 @@
       }
 
       .hero {
-        min-height: auto;
-        padding: 34px 0;
+        grid-template-columns: 1fr;
+        padding: 36px 0 30px;
       }
 
-      .profile-photo {
-        justify-self: start;
-        width: 210px;
-      }
+      /* Show photo above text on mobile */
+      .hero { grid-template-areas: "photo" "text"; }
+      .hero > div { grid-area: text; }
+      .profile-photo { grid-area: photo; justify-self: start; width: 160px; }
 
-      section {
-        padding: 38px 0;
-      }
+      section { padding: 38px 0; }
+
+      .learning-strip { flex-direction: column; gap: 10px; }
+
+      #back-to-top { bottom: 18px; right: 18px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ── HEADER ── -->
   <header>
     <nav aria-label="Main navigation">
       <div class="logo">Christian Tongco</div>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#works">My Works</a></li>
-        <li><a href="#contacts">Contacts</a></li>
+        <li><a href="#about"    data-section="about">About</a></li>
+        <li><a href="#works"    data-section="works">My Works</a></li>
+        <li><a href="#contacts" data-section="contacts">Contacts</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
+
+    <!-- ── HERO ── -->
     <section class="hero" id="home">
       <div>
+        <span class="hero-badge">📚 CS Student · University of Bohol</span>
         <h1>Christian Joseph P. Tongco</h1>
-        <p>
+        <p class="hero-desc">
           Computer Science student, second courser, gamer, and nocturnal learner who enjoys building projects,
           helping classmates, and improving one skill at a time.
         </p>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">Git</span>
+        </div>
       </div>
       <img class="profile-photo" src="About%20Me/assets/Picture1.png" alt="Photo of Christian Joseph P. Tongco">
     </section>
 
-    <section id="about">
+    <!-- ── ABOUT ── -->
+    <section id="about" class="fade-section">
       <h2>About Me</h2>
+      <p class="section-subtitle">A little bit about who I am</p>
+
       <p class="section-text">
         Hello everyone, my name is Christian Joseph P. Tongco. I am a second courser student currently studying
         Computer Science at the University of Bohol.
@@ -284,13 +562,24 @@
         working to become a better version of myself.
       </p>
 
-      <div class="info-grid">
+      <!-- Currently Learning strip -->
+      <div class="learning-strip">
+        <span class="label">📖 Currently Learning</span>
+        <div class="learning-items">
+          <span class="learning-item">C Programming</span>
+          <span class="learning-item">Data Structures</span>
+          <span class="learning-item">Django</span>
+          <span class="learning-item">Database Design</span>
+        </div>
+      </div>
+
+      <div class="info-grid" style="margin-top: 24px;">
         <article class="card">
-          <h3>Favorite Games</h3>
+          <h3>🎮 Favorite Games</h3>
           <ul>
             <li>God of War 2018</li>
             <li>Star Wars: Fallen Order</li>
-            <li>Assassin's Creed, especially the Ezio storyline</li>
+            <li>Assassin's Creed (Ezio storyline)</li>
             <li>Filament</li>
             <li>Left 4 Dead 1 and 2</li>
             <li>Little Nightmares 1 and 2</li>
@@ -299,7 +588,7 @@
         </article>
 
         <article class="card">
-          <h3>Favorite Cafes</h3>
+          <h3>☕ Favorite Cafes</h3>
           <ul>
             <li>Tails Cafe</li>
             <li>Yokoy's Cafe</li>
@@ -308,116 +597,178 @@
         </article>
 
         <article class="card">
-          <h3>Web Systems Schedule</h3>
-          <p>Monday and Wednesday, 12:00-13:30 at Comp Lab B.</p>
-          <p>Monday and Wednesday, 16:30-17:30 at F-303.</p>
+          <h3>🗓️ Web Systems Schedule</h3>
+          <p>Monday and Wednesday</p>
+          <p>12:00–13:30 · Comp Lab B</p>
+          <p style="margin-top: 8px;">Monday and Wednesday</p>
+          <p>16:30–17:30 · F-303</p>
         </article>
       </div>
     </section>
 
-    <section id="works">
+    <!-- ── MY WORKS ── -->
+    <section id="works" class="fade-section">
       <h2>My Works</h2>
-      <p class="section-text">
-        This page showcases the coding projects I've created while learning web development and programming.
-      </p>
+      <p class="section-subtitle">Projects built while learning web development</p>
 
       <div class="works-grid">
         <article class="card">
-          <h3>About Me</h3>
-          <p>
-            My other take on this About Me page, you can disregard.
-          </p>
+          <h3>🙋 About Me</h3>
+          <p>My other take on this About Me page.</p>
           <a href="About%20Me/index.html">View Project</a>
         </article>
 
         <article class="card">
-          <h3>Web Systems</h3>
-          <p>
-            Projects from my Web Systems course, including various HTML, CSS, and web development assignments.
-          </p>
+          <h3>🌐 Web Systems</h3>
+          <p>HTML, CSS, and web development assignments from my Web Systems course.</p>
           <a href="Web%20Systems/assignment%201.html">Assignment 1</a>
           <a href="Web%20Systems/Assignment%202%20tables.html">Assignment 2</a>
         </article>
 
         <article class="card">
-          <h3>Gallery</h3>
-          <p>
-            A photo gallery showcase featuring images and organized in an interactive layout.
-          </p>
+          <h3>🖼️ Gallery</h3>
+          <p>A photo gallery showcase with an interactive layout.</p>
           <a href="gallery/gallery.html">View Project</a>
         </article>
 
         <article class="card">
-          <h3>Map</h3>
-          <p>
-            An interactive map project using coords and poly.
-          </p>
+          <h3>🗺️ Map</h3>
+          <p>An interactive map project using image coords and poly areas.</p>
           <a href="map/mapping.html">View Project</a>
         </article>
 
         <article class="card">
-          <h3>Quote Project</h3>
-          <p>
-            A dynamic quote display project showcasing quotes with styling and interactivity.
-          </p>
+          <h3>💬 Quote Project</h3>
+          <p>A dynamic quote display with styling and interactivity.</p>
           <a href="quote/home.html">View Project</a>
         </article>
 
         <article class="card">
-          <h3>Group Photo Mapping</h3>
-          <p>
-            A collaborative project mapping and organizing group photos with interactive features linking profiles to members of the group.
-          </p>
+          <h3>📍 Group Photo Mapping</h3>
+          <p>A collaborative project linking photos to group members.</p>
           <a href="Group%20Photo%20mapping/index.html">View Project</a>
         </article>
 
         <article class="card">
-          <h3>Navigation Bars</h3>
-          <p>
-            My approach on various navigation bar designs and implementations demonstrating different UI/UX approaches.
-          </p>
-          <a href="Nav%20Bars/navbar.html">Horizontal Nav</a>
-          <a href="Nav%20Bars/verticalnavbar.html">Vertical Nav</a>
+          <h3>🧭 Navigation Bars</h3>
+          <p>Different navigation bar designs showing various UI approaches.</p>
+          <a href="Nav%20Bars/navbar.html">Horizontal</a>
+          <a href="Nav%20Bars/verticalnavbar.html">Vertical</a>
         </article>
 
         <article class="card">
-          <h3>Write-ups</h3>
-          <p>
-            Technical write-ups and documentation of various projects and learning experiences.
-          </p>
+          <h3>✍️ Write-ups</h3>
+          <p>Technical write-ups and documentation from projects and coursework.</p>
           <a href="write%20ups/article.html">View Project</a>
         </article>
 
         <article class="card">
-          <h3>Photos HTML</h3>
-          <p>
-            An HTML-based photo organization and display project with structured layouts.
-          </p>
+          <h3>📷 Photos HTML</h3>
+          <p>An HTML photo organization and display project with structured layouts.</p>
           <a href="photos%20html/Photos.html">View Project</a>
         </article>
       </div>
     </section>
 
-    <section id="contacts">
+    <!-- ── CONTACTS ── -->
+    <section id="contacts" class="fade-section">
       <h2>Contacts</h2>
-      <p class="section-text">
-        You can contact me through email:
-        <a class="email-link" href="mailto:cjptongco@universityofbohol.edu.ph">cjptongco@universityofbohol.edu.ph</a>
-      </p>
-      <p class="section-text">Dampas District, Tagbilaran City, Bohol 6300, Philippines</p>
+      <p class="section-subtitle">Feel free to reach out</p>
+
+      <div class="contact-box">
+        <div class="contact-row">
+          <span class="contact-icon">✉️</span>
+          <a class="email-link" href="mailto:cjptongco@universityofbohol.edu.ph">
+            cjptongco@universityofbohol.edu.ph
+          </a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📍</span>
+          <span>Dampas District, Tagbilaran City, Bohol 6300, Philippines</span>
+        </div>
+      </div>
 
       <div class="contact-list" aria-label="Social links">
-        <a class="button-link" href="https://www.facebook.com/tiantian.tongco" target="_blank">Facebook</a>
-        <a class="button-link" href="https://www.instagram.com/dc_n_j.s/" target="_blank">Instagram</a>
-        <a class="button-link" href="https://www.youtube.com/@cjtongco7700" target="_blank">YouTube</a>
-        <a class="button-link" href="https://www.youtube.com/@moander18" target="_blank">Gaming YouTube</a>
-        <a class="button-link" href="https://www.tiktok.com/@_moander_" target="_blank">TikTok</a>
+        <a class="button-link" href="https://www.facebook.com/tiantian.tongco"  target="_blank">📘 Facebook</a>
+        <a class="button-link" href="https://www.instagram.com/dc_n_j.s/"       target="_blank">📸 Instagram</a>
+        <a class="button-link" href="https://www.youtube.com/@cjtongco7700"      target="_blank">▶️ YouTube</a>
+        <a class="button-link" href="https://www.youtube.com/@moander18"         target="_blank">🎮 Gaming YouTube</a>
+        <a class="button-link" href="https://www.tiktok.com/@_moander_"          target="_blank">🎵 TikTok</a>
       </div>
     </section>
+
   </main>
 
+  <!-- ── FOOTER ── -->
   <footer>
-    <p>&copy; 2026 Christian Joseph P. Tongco. All rights reserved.</p>
+    <p class="footer-name">Christian Joseph P. Tongco</p>
+    <p>CS Student · University of Bohol · Tagbilaran City, Bohol</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#works">My Works</a>
+      <a href="#contacts">Contacts</a>
+      <a href="https://github.com/unknownct4-dev/Portfolio" target="_blank">GitHub ↗</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Christian Joseph P. Tongco. All rights reserved.</p>
   </footer>
+
+  <!-- Floating back-to-top button -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    // ── 1. BACK TO TOP BUTTON ─────────────────────────────────────────
+    // Shows the floating button once you scroll 300px down
+    const btn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        btn.classList.add('show');
+      } else {
+        btn.classList.remove('show');
+      }
+    });
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+
+    // ── 2. FADE-IN ON SCROLL ──────────────────────────────────────────
+    // IntersectionObserver fires when an element enters the viewport
+    // We add the class 'visible', which triggers the CSS transition
+    const fadeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.card, .fade-section').forEach(function (el) {
+      fadeObserver.observe(el);
+    });
+
+
+    // ── 3. ACTIVE NAV HIGHLIGHT ───────────────────────────────────────
+    // Watches which section is in the middle of the screen
+    // and highlights the matching nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+
+    const navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (link) { link.classList.remove('active'); });
+          const match = document.querySelector(
+            '.nav-links a[data-section="' + entry.target.id + '"]'
+          );
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) { navObserver.observe(s); });
+  </script>
+
 </body>
 </html>
