@@ -35,7 +35,7 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3CrectFill='%230d0f14' width='200' height='200'/%3E%3CrectFill='%237b6ef6' width='200' height='200' opacity='0.03' filter='url(%23n)'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
     }
@@ -92,7 +92,7 @@
     .content {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 5rem 2.5rem;
     }
@@ -129,6 +129,66 @@
       margin-bottom: 1rem;
     }
 
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: rgba(20, 23, 32, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      background: rgba(123, 110, 246, 0.05);
+      transform: translateY(-4px);
+    }
+
+    .project-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent2);
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .project-link:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+    }
+
     footer {
       position: relative;
       z-index: 1;
@@ -154,6 +214,7 @@
       nav { padding: 1rem 1.25rem; }
       .content { padding: 3rem 1.25rem; }
       footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -164,7 +225,7 @@
   <nav>
     <span class="nav-logo">unknownct4-dev</span>
     <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Home</a></li>
       <li><a href="https://github.com/unknownct4-dev/Portfolio" target="_blank">GitHub ↗</a></li>
     </ul>
   </nav>
@@ -175,22 +236,109 @@
     <div class="section">
       <h2>Background</h2>
       <p>
-        I'm a Computer Science student at the University of Bohol, transitioning from a background in Maritime Transportation. My journey into tech started with a passion for building things on the web, and I've been hooked ever since.
+        I'm a Computer Science student at the University of Bohol, transitioning from a background in Maritime Transportation. My journey into tech started with a passion for building things on the web and creating elegant solutions to complex problems.
       </p>
     </div>
 
     <div class="section">
       <h2>What I Do</h2>
       <p>
-        I focus on web development, working with HTML, CSS, JavaScript, and backend technologies like Django and Python. I'm comfortable in both front-end design and server-side logic, always eager to learn new tools and frameworks.
+        I focus on web development, working with HTML, CSS, JavaScript, and backend technologies like Django and Python. I'm comfortable in both front-end design and server-side logic, always eager to learn and implement best practices.
       </p>
     </div>
 
     <div class="section">
       <h2>Beyond Code</h2>
       <p>
-        When I'm not coding, you'll find me exploring how systems work, contributing to projects, and constantly expanding my skill set. I believe in building clean, maintainable code and creating intuitive user experiences.
+        When I'm not coding, you'll find me exploring how systems work, contributing to projects, and constantly expanding my skill set. I believe in building clean, maintainable code and creating meaningful user experiences.
       </p>
+    </div>
+
+    <div class="section">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <h3>Group Photo Mapping</h3>
+          <p>Interactive photo mapping and tagging system using HTML.</p>
+          <div class="project-links">
+            <a href="../Group%20Photo%20mapping/index.html" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Navigation Bars</h3>
+          <p>Collection of responsive navigation bar implementations.</p>
+          <div class="project-links">
+            <a href="../Nav%20Bars/navbar.html" class="project-link">Horizontal Nav</a>
+            <a href="../Nav%20Bars/verticalnavbar.html" class="project-link">Vertical Nav</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Web Systems</h3>
+          <p>Web systems assignments and explorations.</p>
+          <div class="project-links">
+            <a href="../Web%20Systems/About%20me.html" class="project-link">About Me</a>
+            <a href="../Web%20Systems/assignment%201.html" class="project-link">Assignment 1</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>WebApp</h3>
+          <p>Interactive web application project.</p>
+          <div class="project-links">
+            <a href="../WebApp/index.html" class="project-link">Open App</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Photo Gallery</h3>
+          <p>Responsive photo gallery with grid layout.</p>
+          <div class="project-links">
+            <a href="../gallery/gallery.html" class="project-link">Main Gallery</a>
+            <a href="../gallery/testing.html" class="project-link">Testing</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Interactive Mapping</h3>
+          <p>Map visualization and interaction project.</p>
+          <div class="project-links">
+            <a href="../map/mapping.html" class="project-link">View Map</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Photo Collection</h3>
+          <p>Photo showcase and display system.</p>
+          <div class="project-links">
+            <a href="../photos%20html/Photos.html" class="project-link">Photos</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Quote Projects</h3>
+          <p>Quote application with multiple views and features.</p>
+          <div class="project-links">
+            <a href="../quote/home.html" class="project-link">Home</a>
+            <a href="../quote/quotations.html" class="project-link">Quotations</a>
+            <a href="../quote/eggsperiment.html" class="project-link">Eggsperiment</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Write-Ups & Articles</h3>
+          <p>Collection of technical articles and write-ups.</p>
+          <div class="project-links">
+            <a href="../write%20ups/index.html" class="project-link">Index</a>
+            <a href="../write%20ups/article.html" class="project-link">Article</a>
+            <a href="../write%20ups/article1.html" class="project-link">Article 1</a>
+            <a href="../write%20ups/article2.html" class="project-link">Article 2</a>
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </div>
