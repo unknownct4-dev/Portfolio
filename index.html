@@ -218,21 +218,27 @@
       border: 1px solid #d5e1e4;
       border-radius: 10px;
       box-shadow: 0 4px 14px rgba(18, 52, 59, 0.07);
-      /* Start hidden; JS adds .visible to fade them in */
+      /* Use a wrapper animation so hover transform never conflicts */
       opacity: 0;
-      transform: translateY(18px);
+      animation: none;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
 
+    /* JS adds .visible — triggers the fade-in animation once */
     .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      animation: cardFadeIn 0.5s ease forwards;
+    }
+
+    /* After the animation ends, the card sits at full opacity.
+       Hover can now freely use transform without fighting the fade. */
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 10px 26px rgba(18, 52, 59, 0.13);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     /* Teal top bar on every works card */
@@ -381,13 +387,16 @@
     ───────────────────────────── */
     .fade-section {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      animation: none;
     }
 
     .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      animation: sectionFadeIn 0.6s ease forwards;
+    }
+
+    @keyframes sectionFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     /* Hero is always fully visible */
