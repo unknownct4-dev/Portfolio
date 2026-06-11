@@ -218,19 +218,16 @@
       border: 1px solid #d5e1e4;
       border-radius: 10px;
       box-shadow: 0 4px 14px rgba(18, 52, 59, 0.07);
-      /* Use a wrapper animation so hover transform never conflicts */
       opacity: 0;
       animation: none;
       transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
 
-    /* JS adds .visible — triggers the fade-in animation once */
+    /* JS adds .visible — triggers the fade-in animation */
     .card.visible {
       animation: cardFadeIn 0.5s ease forwards;
     }
 
-    /* After the animation ends, the card sits at full opacity.
-       Hover can now freely use transform without fighting the fade. */
     @keyframes cardFadeIn {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -743,12 +740,19 @@
 
 
     // ── 2. FADE-IN ON SCROLL ──────────────────────────────────────────
-    // IntersectionObserver fires when an element enters the viewport
-    // We add the class 'visible', which triggers the CSS transition
+    // IntersectionObserver fires whenever an element enters OR leaves
+    // the viewport. Adding 'visible' triggers the CSS animation;
+    // removing it resets the element so the animation replays next time.
     const fadeObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
+          // Remove first to force a clean replay if already animated
+          entry.target.classList.remove('visible');
+          void entry.target.offsetWidth; // force browser reflow
           entry.target.classList.add('visible');
+        } else {
+          // Element has left the viewport — reset so it animates again
+          entry.target.classList.remove('visible');
         }
       });
     }, { threshold: 0.08 });
